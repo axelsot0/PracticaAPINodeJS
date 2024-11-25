@@ -1,0 +1,14 @@
+GET http://localhost:3000/api/cursos/programacion HTTP/1.1
+
+POST http://localhost:3000/api/cursos/programacion HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 4,
+  "titulo": "Aprende Node.js",
+  "lenguaje": "javascript",
+  "vistas": 45676,
+  "nivel": "basico"
+}
+
+DELETE http://localhost:3000/api/cursos/programacion/1 HTTP/1.1
