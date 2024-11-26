@@ -10,12 +10,12 @@ routerMatematicas.get('/', (req, res) => {
     res.json(matematicas);
 });
 
-routerMatematicas.get('/:tema', (req, res) => {
-    const tema = req.params.tema;
-    const resultados = matematicas.filter(curso => curso.tema === tema);
+routerMatematicas.get('/:titulo', (req, res) => {
+    const titulo = req.params.titulo;
+    const resultados = matematicas.filter(curso => curso.titulo === titulo);
 
     if (resultados.length === 0) {
-        return res.status(404).send(`No se encontraron cursos de ${tema}`);
+        return res.status(404).send(`No se encontraron cursos de ${titulo}`);
     }
     res.json(resultados);
 });
@@ -28,7 +28,11 @@ routerMatematicas.post('/', (req, res) => {
     console.log("Lenguaje: ", cursoNuevo.lenguaje);
     console.log("Vistas: ", cursoNuevo.vistas);
     console.log("Nivel: ", cursoNuevo.nivel);
+    if (!cursoNuevo.hashOwnProperty(`titulo`))
+    {
+        return res.status(404).send(`No se encontro el ${titulo}`);
 
+    }
     
 
     matematicas.push(cursoNuevo);
