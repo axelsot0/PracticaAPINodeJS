@@ -109,3 +109,7 @@ routerProgramacion.delete('/:id', (req, res) => {
 });
 
 module.exports = routerProgramacion;
+//Axel Soto 2022-2184
+//Andy Daniel 2023-0972
+//Angel Naut 2023-0955
+//Angelo Bonifacio 2023-0939
