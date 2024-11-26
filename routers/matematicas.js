@@ -28,12 +28,12 @@ routerMatematicas.post('/', (req, res) => {
     console.log("Lenguaje: ", cursoNuevo.lenguaje);
     console.log("Vistas: ", cursoNuevo.vistas);
     console.log("Nivel: ", cursoNuevo.nivel);
-    if (!cursoNuevo.hashOwnProperty(`titulo`))
+
+    if(!cursoNuevo.id || !cursoNuevo.titulo || !cursoNuevo.lenguaje || !cursoNuevo.visitas || !cursoNuevo.nivel)
     {
-        return res.status(404).send(`No se encontro el ${titulo}`);
+        return res.status(404).send(`Campos de la propiedad invalidos o faltantes ${cursoNuevo.titulo}`);
 
     }
-    
 
     matematicas.push(cursoNuevo);
     res.json(matematicas);

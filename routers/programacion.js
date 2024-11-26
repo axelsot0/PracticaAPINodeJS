@@ -41,14 +41,14 @@ routerProgramacion.get('/:lenguaje/:nivel', (req, res) => {
 
 routerProgramacion.post('/', (req, res) => {
     let cursoNuevo = req.body;
-    console.log(cursoNuevo); // Imprime todo el objeto
+    console.log(cursoNuevo);
     console.log("ID: ", cursoNuevo.id);
     console.log("Titulo: ", cursoNuevo.titulo);
     console.log("Lenguaje: ", cursoNuevo.lenguaje);
     console.log("Vistas: ", cursoNuevo.vistas); 
     console.log("Nivel: ", cursoNuevo.nivel);
    
-    if (cursoNuevo.id == "" || cursoNuevo.titulo == "" || cursoNuevo.lenguaje == "" || cursoNuevo.visitas == "" || cursoNuevo.nivel == "") {
+    if (!cursoNuevo.id  || !cursoNuevo.titulo  || !cursoNuevo.lenguaje || !cursoNuevo.visitas || !cursoNuevo.nivel) {
         console.log("faltan campos");
         return res.status(400).send('Faltan campos requeridos (id, titulo, lenguaje, visitas, nivel)');
     }
